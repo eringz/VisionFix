@@ -1,0 +1,31 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__psycache_/
+venv/
+.env
+*.db
+*.sqlite3
+
+# Node.js / Next.js
+.next/
+.out/
+build/
+dist/
+*.log
+*.env
+
+# Docker
+*.dockerignore
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
