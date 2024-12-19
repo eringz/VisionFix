@@ -1,7 +1,7 @@
 # VisionFix
 **VisionFix** is a fully integrated e-commerce platform that automates personalization and provides a smooth, scalable, and fast-loading user experience. It includes both a frontend (Next.js) and a backend (FastAPI) with a PostgreSQL database, all containerized using Docker for ease of deployment and consistency across environments.
 
-This project will be deployed with Docker Compose for multi-container management, ensuring the entire application stack (frontend, backend, and database) can be spun up with a single command. **VisionFix** showcases your proficiency in modern full-stack development, DevOps practices, and the ability to work with cutting-edge technologies.
+This project will be deployed with Docker Compose for multi-container management, ensuring the entire application stack (frontend, backend, and database) can be spun up with a single command. **VisionFix** showcases the proficiency in modern full-stack development, DevOps practices, and the ability to work with cutting-edge technologies.
 
 ## Features
 
