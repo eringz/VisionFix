@@ -3,4 +3,12 @@ uvicorn[standard]
 requests
 pydantic
 sqlalchemy
+psycopg2-binary  # or asyncpg for async
+alembic
+databases
+python-dotenv
+pytest
+pytest-asyncio
 
+# Optional for production:
+gunicorn

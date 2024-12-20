@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile # Path to the frontend Dockerfile
+    container_name: vissionfix_frontend
+    ports:
+      - "3000:3000" # Expose the frontend on port 3000
+    networks:
+      - vissionfix_network
+    depends_on:
+      - backend
+
+  backend: 
+    build: 
+      context: .
+      dockerfile: backend/Dockerfile # Path to the backend Dockerfile
+    container_name: vissionfix_backend
+    ports:
+      - "8000:8000" # Expose the backend on port 8000
+    networks:
+      - vissionfix_network
+    environment: 
+      - DATABASE_URL=postgresql://postgres:password@db:5432/visionfix_db # Database connection URL
+    depends_on:
+      - db
+  
+  db:
+    image: postgres:latest
+    container_name: vissionfix_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: vissionfix_db # Database name
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - vissionfix_network
+
+networks:
+  vissionfix_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local
+
+  
+      
