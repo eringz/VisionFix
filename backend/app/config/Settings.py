@@ -6,7 +6,6 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"  # Points to the .env file
 
-
 # Create an instance of Settings
 settings = Settings()
 
