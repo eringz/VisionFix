@@ -17,15 +17,21 @@ services:
     build: 
       context: .
       dockerfile: backend/Dockerfile # Path to the backend Dockerfile
+    env_file:
+      - .env  # This will now point to the .env file in the root directory
     container_name: vissionfix_backend
     ports:
       - "8000:8000" # Expose the backend on port 8000
     networks:
       - vissionfix_network
     environment: 
-      - DATABASE_URL=postgresql://postgres:password@db:5432/visionfix_db # Database connection URL
+      # - DATABASE_URL=postgresql://postgres:password@db:5432/visionfix_db # Database connection URL
+      - DATABASE_URL=postgresql://postgres:password@vissionfix_db:5432/visionfix_db
     depends_on:
       - db
+    
+    # This is to ensure the backend starts after the database is ready
+    # command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
   
   db:
     image: postgres:latest
@@ -38,6 +44,12 @@ services:
       - postgres_data:/var/lib/postgresql/data
     networks:
       - vissionfix_network
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "vissionfix_db"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
 
 networks:
   vissionfix_network:

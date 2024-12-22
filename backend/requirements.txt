@@ -9,6 +9,7 @@ databases
 python-dotenv
 pytest
 pytest-asyncio
+pydantic_settings
 
 # Optional for production:
 gunicorn
