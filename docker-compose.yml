@@ -48,7 +48,7 @@ services:
       timeout: 5s
 
 networks:
-  vissionfix_network:
+  visionfix_network:
     driver: bridge
 
 volumes:
