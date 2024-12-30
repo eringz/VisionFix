@@ -4,7 +4,7 @@ from app.db.Database import Base, engine
 from contextlib import asynccontextmanager
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv() # Load environment from .env
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -24,7 +24,7 @@ app.include_router(product_router)
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to Vission API my guest ron"}
+    return {"message": "Welcome to Vission API my guest Ron Santos!"}
 
 # The following code block ensures the app runs correctly in a container
 if __name__ == "__main__":
